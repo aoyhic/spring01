@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>listall.jsp</title>
+<title>page.jsp</title>
 <!-- 1.animate css -->
 <link rel="stylesheet" href="/webjars/animate.css/3.5.2/animate.min.css">
 <!-- 2.BootStrap -->
@@ -17,13 +17,27 @@
 <script type="text/javascript" src="/webjars/jquery/1.11.1/jquery.min.js"></script>
 <!-- 4.bootstrap.js -->
 <script type="text/javascript" src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
-<c:if test="false">
+
 <!-- code assist -->
+<c:if test="false">
 <link rel="stylesheet" href="../code_assist/animate.css">
 <link rel="stylesheet" href="../code_assist/bootstrap.css">
 </c:if>
 </head>
 <body>
-
+<h1>City Page PageNo=${page.paging.pageNo}</h1>
+<ol class="list-group">
+<c:forEach var="city" items="${page.citys}">
+<li class="list-group-item-success animated zoomIn">${city.id},<a href="/city/item/${city.id}?pageNo=${page.paging.pageNo}"> ${city.name}</a>, ${city.population}, ${city.countryCode}</li>
+</c:forEach>
+</ol>
+<hr class="animated bounce">
+<a href="/city/page/1">First</a>
+<a href="/city/page/${page.paging.firstPage-1}">Prev</a>
+<c:forEach var="i" begin="${page.paging.firstPage}" end="${page.paging.lastPage}">
+	<a href="/city/page/${i}">${i}</a>
+</c:forEach>
+<a href="/city/page/${page.paging.lastPage+1}">Next</a>
+<a href="/city/page/${page.paging.totalPage}">Last</a>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>listall.jsp</title>
+<title>list.jsp</title>
 <!-- 1.animate css -->
 <link rel="stylesheet" href="/webjars/animate.css/3.5.2/animate.min.css">
 <!-- 2.BootStrap -->
@@ -17,13 +17,18 @@
 <script type="text/javascript" src="/webjars/jquery/1.11.1/jquery.min.js"></script>
 <!-- 4.bootstrap.js -->
 <script type="text/javascript" src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
-<c:if test="false">
 <!-- code assist -->
+<c:if test="false">
 <link rel="stylesheet" href="../code_assist/animate.css">
 <link rel="stylesheet" href="../code_assist/bootstrap.css">
 </c:if>
 </head>
 <body>
-
+<h1>City list</h1>
+<ol>
+<c:forEach var="city" items="${list}">
+<li>${city.id},${city.name},${city.population},${city.country.name}</li>
+</c:forEach>
+</ol>
 </body>
 </html>

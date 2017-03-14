@@ -69,7 +69,21 @@ from dept d left outer join emp e
   on d.deptno = e.deptno
  where e.deptno=#{deptno}
 </select>
+<insert id="insert">
+insert into dept
+(
+	deptno,
+	dname,
+	loc
+)
+values
+(
+	#{deptno},
+	#{dname},
+	#{loc}
+)
 
+</insert>
 </mapper>
 
 

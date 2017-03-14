@@ -2,6 +2,7 @@ package com.example.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -32,6 +33,12 @@ public interface DeptMapper {
 		@Select("select * from dept where deptno=#{deptno}")
 		Dept selectByDeptno(int deptno);
 		Dept selectByDeptnoWithEmp(int deptno);
+		
+		int insert(Dept dept);
+		int updateByDeptno(Dept dept);
+		
+		@Delete("delete from dept where deptno=#{deptno}")
+		int deleteByDeptno(int deptno);
 		
 		
 }

@@ -73,4 +73,12 @@ public class DeptMapperTests {
 			throw new NotFoundRuntimeException("Dept가 없습니다.");
 		System.out.println(dept);
 	}
+	
+	@Test
+	public void test04_insert(){
+		Dept dept = new Dept();
+		
+		
+		
+	}
 }

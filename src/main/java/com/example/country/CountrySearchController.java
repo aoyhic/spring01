@@ -53,12 +53,10 @@ public class CountrySearchController {
 	public String getItem(@PathVariable String code,Model model){
 		log.info("getItem("+ code + ")");
 		
-		try{
+		//try-catch 없앰 
 		Country c =countrySearchService.getCountryByCode(code,true);
 		model.addAttribute("country", c);
-		} catch(NotFoundRuntimeException e){
-			model.addAttribute("error", e.getMessage()); //에러났으면 모델에 달아놓으라는 뜻. 에러가 리퀘스트가 달려있어서 에러처리가 가능해짐.
-		}
+		
 		
 		return "country/item";
 	}

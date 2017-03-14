@@ -9,14 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>page.jsp</title>
-<!-- 1.animate css -->
-<link rel="stylesheet" href="/webjars/animate.css/3.5.2/animate.min.css">
-<!-- 2.BootStrap -->
-<link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.css">
-<!-- 3.JQuery -->
-<script type="text/javascript" src="/webjars/jquery/1.11.1/jquery.min.js"></script>
-<!-- 4.bootstrap.js -->
-<script type="text/javascript" src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+
 
 <!-- code assist -->
 <c:if test="false">
@@ -26,11 +19,13 @@
 </head>
 <body>
 <h1>City Page PageNo=${page.paging.pageNo}</h1>
+
 <ol class="list-group">
 <c:forEach var="city" items="${page.citys}">
-<li class="list-group-item-success animated zoomIn">${city.id},<a href="/city/item/${city.id}?pageNo=${page.paging.pageNo}"> ${city.name}</a>, ${city.population}, ${city.countryCode}</li>
+<li class="list-group-item">${city.id}><a href="/city/item/${city.id}?pageNo=${page.paging.pageNo}"> ${city.name}</a>, ${city.population}, ${city.countryCode}</li>
 </c:forEach>
 </ol>
+
 <hr class="animated bounce">
 <a href="/city/page/1">First</a>
 <a href="/city/page/${page.paging.firstPage-1}">Prev</a>

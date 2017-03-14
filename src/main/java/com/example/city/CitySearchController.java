@@ -46,12 +46,10 @@ public class CitySearchController {
 	public String getItemById(@PathVariable int id, Model model){
 		log.info("getItem("+id+")");
 		
-		try{
+			//원래 try/catch만들었는데 더 간략하게 하기 위해, null리턴되도 상관없도록 수정함.
 			City city = citySearchService.getCityById(id,true);
 			model.addAttribute("city", city);
-		}		catch(NotFoundRuntimeException e){
-			model.addAttribute("error", e.getMessage());
-		}
+		
 		return "city/item";
 		
 	}

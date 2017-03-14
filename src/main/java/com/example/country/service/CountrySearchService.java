@@ -67,9 +67,7 @@ public class CountrySearchService {
 			country = countryMapper.selectByCodeWithCity(code);
 		else
 			country = countryMapper.selectByCode(code);
-		
-		if(country == null)
-			throw new NotFoundRuntimeException("Country가 없습니다.");
+		//throw 부분 삭제
 		return country;
 	}
 	

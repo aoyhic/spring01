@@ -40,6 +40,7 @@ select	c1.code 			as country_code,
 	    c1.gnp				as country_gnp,
 	    c1.gnp_old 			as country_gnp_old,
 	    c1.local_name 		as country_local_name,
+	    c1.head_of_state 	as country_head_of_state,
 	    c1.government_form 	as country_government_form,
 	    c1.capital 			as country_capital,
 	    c1.code2 			as country_code2,		
@@ -82,6 +83,7 @@ select	c1.code 			as country_code,
 	    c1.gnp				as country_gnp,
 	    c1.gnp_old 			as country_gnp_old,
 	    c1.local_name 		as country_local_name,
+	    c1.head_of_state 	as country_head_of_state,
 	    c1.government_form 	as country_government_form,
 	    c1.capital 			as country_capital,
 	    c1.code2 			as country_code2,		
@@ -94,4 +96,45 @@ select	c1.code 			as country_code,
     on c1.code = c2.country_code
  where c2.country_code=#{code}
 </select>
+<insert id="insert">
+
+		insert into country
+		(
+		code,
+		name,	
+	    continent,
+	    region,
+	    surface_area,
+	    indep_year,
+	    population,
+	    life_expectancy,
+	    gnp,
+	    gnp_old,
+	    local_name,
+	    head_of_state,
+	    government_form,
+	    capital,
+	    code2 	
+		)
+		values
+		(
+		#{code},
+		#{name},	
+	    #{continent},
+	    #{region},
+	    #{surfaceArea},
+	    #{indepYear},
+	    #{population},
+	    #{lifeExpectancy},
+	    #{gnp},
+	    #{gnpOld},
+	    #{localName},
+	    #{headOfState},
+	    #{governmentForm},
+	    #{capital},
+	    #{code2} 	
+		)		
+</insert>
+
+
 </mapper>

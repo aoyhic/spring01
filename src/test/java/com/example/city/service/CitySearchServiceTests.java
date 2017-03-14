@@ -56,7 +56,7 @@ public class CitySearchServiceTests {
 	
 	@Test
 	public void test03_getCityById(){
-		City c= service.getCityById(50);
+		City c= service.getCityById(10000);
 			System.out.println(c);
 	}
 	
